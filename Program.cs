@@ -96,7 +96,7 @@ else
 
 void WriteMergergedStringsFile(){
 
- using var fs = new StreamWriter(Path.Combine(Environment.CurrentDirectory, outputFolder,"strings.xml"), new FileStreamOptions{ Mode= FileMode.OpenOrCreate, Share= FileShare.ReadWrite, Access = FileAccess.ReadWrite});
+ using var fs = new StreamWriter(Path.Combine(Environment.CurrentDirectory, outputFolder,"strings.xml"), new FileStreamOptions{ Mode= FileMode.Create, Share= FileShare.ReadWrite, Access = FileAccess.Write});
     fs.WriteLine("<resources>");
         foreach(var t in maps){
             fs.WriteLine($"    <!--{t.Value.DefaultSource}-->");//preceed each line with some hints of where it belongs
@@ -118,7 +118,7 @@ void WriteTranslatedStrings(){
                 continue;
             if(fileStream == null) {
                 outputPathh = Path.Combine(Environment.CurrentDirectory,t.Value.DefaultSource.Replace("values","values-"+locale.Key));
-                fileStream =  new StreamWriter(outputPathh, new FileStreamOptions{ Mode= FileMode.CreateNew, Share= FileShare.ReadWrite, Access = FileAccess.ReadWrite});
+                fileStream =  new StreamWriter(outputPathh, new FileStreamOptions{ Mode= FileMode.Create, Share= FileShare.ReadWrite, Access = FileAccess.ReadWrite});
                 fileStream.WriteLine("<resources>");
             }
             fileStream.WriteLine($"    <string name=\"{t.Value.ResId}\">{translationForLocale.Translation}</string>");
