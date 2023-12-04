@@ -1,8 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Xml;
+using CLAP.Validation;
 using Newtonsoft.Json;
 
-string? rootFolder=null, mode = null,mapFile = null, outputFolder = null, translationsFolder = null;
+string? rootFolder=null, mode = null,mapFile = "translations.json", outputFolder = null, translationsFolder = null;
 List<string> StringXmls = new();
 List<string> IgnoreList = new() { "build",".gradle","proguard","schemas","gradle","locale","java","assets"};
 TranslationMap translationMap;
@@ -12,12 +13,12 @@ Dictionary<string,string> AvailableTranslations = new();
 if(args.Length >0)
 {
     ParseInputCommands(args, ref rootFolder, ref mode, ref mapFile, ref outputFolder, ref translationsFolder);
-    if (string.IsNullOrEmpty(rootFolder) || string.IsNullOrEmpty(mode) || outputFolder == null)
+    if(mode == "combine" && (string.IsNullOrEmpty(rootFolder) || string.IsNullOrEmpty(mode) || outputFolder == null))
     {
         Environment.Exit(Environment.ExitCode);
     }
 
-    rootFolder = Path.Combine(Environment.CurrentDirectory, rootFolder);
+    rootFolder = Path.Combine(Environment.CurrentDirectory, rootFolder ?? "");
     if (!string.IsNullOrEmpty(mapFile) && File.Exists(Path.Combine(Environment.CurrentDirectory, mapFile)))
     {
         Console.WriteLine("Loading translation map");
@@ -89,10 +90,10 @@ if(args.Length >0)
     
     //Locate all translated string
     GetStringXmls(translationsFolderPath);
-    //Extract the tranlations
+    //Extract the tranlations into memory
     LoadstringsFromFiles();
-
-    
+    //Write the separate translated strings to their various destinations
+    WriteTranslatedStrings();
 }
 else
 {
@@ -113,27 +114,31 @@ void WriteMergergedStringsFile(){
 
 //Write the translated string to their various locations
 void WriteTranslatedStrings(){
-    foreach(var locale in AvailableTranslations){
-        StreamWriter? fileStream = null;
-        var outputPathh = "";
-        try{
-            foreach(var t in maps){
-            var translationForLocale = t.Value.Translations[locale.Key];
-           
-            if(translationForLocale == null)
-                continue;
-            if(fileStream == null) {
-                outputPathh = Path.Combine(Environment.CurrentDirectory,t.Value.DefaultSource.Replace("values","values-"+locale.Key));
-                fileStream =  new StreamWriter(outputPathh, new FileStreamOptions{ Mode= FileMode.Create, Share= FileShare.ReadWrite, Access = FileAccess.ReadWrite});
+    var groupedOutputFiles = maps.Values.Select(p =>p.DefaultSource).Distinct();
+
+    foreach(var localeFile in groupedOutputFiles){
+        foreach(var language in AvailableTranslations){
+            StreamWriter? fileStream = null;
+            var outputPathh = Path.Combine(Environment.CurrentDirectory,localeFile.Replace("values","values-"+language.Key));
+            var outputValuesFolder = outputPathh.Replace("strings.xml","");
+            if(!Directory.Exists(outputValuesFolder))
+                Directory.CreateDirectory(outputValuesFolder);
+            
+            try{
+                fileStream = new StreamWriter(outputPathh, new FileStreamOptions{ Mode= FileMode.Create, Share = FileShare.ReadWrite, Access = FileAccess.ReadWrite});
                 fileStream.WriteLine("<resources>");
+                foreach(var t in maps){
+                    if(t.Value.DefaultSource != localeFile)//does not belong here
+                        continue;
+                var translationForLocale = t.Value.Translations[language.Key];
+                fileStream.WriteLine($"    <string name=\"{t.Value.ResId}\">{translationForLocale.Translation}</string>");
             }
-            fileStream.WriteLine($"    <string name=\"{t.Value.ResId}\">{translationForLocale.Translation}</string>");
-        }
-         fileStream?.WriteLine("</resources>");
-        }catch (Exception e){
-            Console.WriteLine("Failed to write translated string to: {0}",outputPathh);
-        } finally {
-            fileStream?.Close();
+            fileStream?.WriteLine("</resources>");
+            }catch (Exception e){
+                Console.WriteLine("Failed to write translated string to: {0}",outputPathh);
+            } finally {
+                fileStream?.Close();
+            }
         }
     }
 
@@ -187,25 +192,30 @@ void LoadstringsFromFiles(bool defaultsOnly = false){
                 Console.WriteLine("Failed to extract Resource Identifier in {0}",f);
                 break;
             }
-            var key = f+"||"+resid;
-            // key = Base64Encode(key);
-            key = CreateMD5(key);
-            if(!maps.ContainsKey(key)){
-                maps[key] = new TranslationItem{
+            var key = resid;
+            if(mode == "combine") 
+            {
+                key = f.Replace(Environment.CurrentDirectory,"")+"||"+resid;
+                key = CreateMD5(key);
+            }
+            if(!maps.TryGetValue(key, out TranslationItem? value))
+            {
+                value = new TranslationItem{
                         ResId =resid,
                 };
+                maps[key] = value;
             }
             if(isDefaultString && mode == "combine"){
-                maps[key].DefaultSource = f.Replace(Environment.CurrentDirectory+Path.DirectorySeparatorChar,"");
-                maps[key].DefaultValue = node?.InnerText ?? "";
+                value.DefaultSource = f.Replace(Environment.CurrentDirectory+Path.DirectorySeparatorChar,"");
+                value.DefaultValue = node?.InnerText ?? "";
             } else {
                 if(locale == null)
                     continue;
-                var exists = maps[key].Translations.ContainsKey(locale);
+                var exists = value.Translations.ContainsKey(locale);
                 if(!exists)
-                    maps[key].Translations[locale] = new TranslationData();
-                maps[key].Translations[locale].Source = f.Replace(Environment.CurrentDirectory+Path.DirectorySeparatorChar,"");
-                maps[key].Translations[locale].Translation = node?.InnerText ?? "";
+                    value.Translations[locale] = new TranslationData();
+                value.Translations[locale].Source = value.DefaultSource .Replace(Path.DirectorySeparatorChar+"values",Path.DirectorySeparatorChar+"values-"+locale);
+                value.Translations[locale].Translation = node?.InnerText ?? "";
             }
         }
     }
