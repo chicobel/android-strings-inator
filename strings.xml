@@ -1,0 +1,78 @@
+<resources>
+    <!--../../core/ui/src/main/res/values/strings.xml-->
+    <string name="594E2E204446968E42F175BCBDD8CA0F">Image of a family smiling and sat on a sofa around a laptop</string>
+    <!--../../core/ui/src/main/res/values/strings.xml-->
+    <string name="9695354219970E81AF3183415A7F2E91">Image of a woman sat at a desk with a coffee cup in one hand and a phone in the other</string>
+    <!--../../core/ui/src/main/res/values/strings.xml-->
+    <string name="3D085A5E77A5A73D6258BE3B909619A9">Image of a man and woman posing for a selfie</string>
+    <!--../../core/ui/src/main/res/values/strings.xml-->
+    <string name="B73FA9504B10F9F9B1050B1E6E5A5D6F">Down arrow head to make a selection by tapping on</string>
+    <!--../../app/src/totalav/res/values/strings.xml-->
+    <string name="E1B02608DDCD671141E530A5074B8024">TotalAV</string>
+    <!--../../app/src/totalav/res/values/strings.xml-->
+    <string name="02B4719B49C5E2FFC93E72EA25AED945">totalav</string>
+    <!--../../app/src/totalav/res/values/strings.xml-->
+    <string name="9BF43F29F2140ECE3F38CB42B80CE7B8">TotalAV App Lock</string>
+    <!--../../app/src/totalav/res/values/strings.xml-->
+    <string name="C8ED5DEA390225F9BA6CB038A9224389">TotalAV App Lock Service</string>
+    <!--../../app/src/totalav/res/values/strings.xml-->
+    <string name="AE88F938CCD7AFCBCD135BBDAA11546C">TotalAV WebShield</string>
+    <!--../../app/src/totalav/res/values/strings.xml-->
+    <string name="7692AF0A5E72C810509B4E1DFFB0D3CD">TotalAV WebShield service</string>
+    <!--../../app/src/totalav/res/values/strings.xml-->
+    <string name="617D329511CFB092DC756D1DDCDC2693">RealTimeResultActivity</string>
+    <!--../../app/src/pcprotect/res/values/strings.xml-->
+    <string name="EB03C27BD8D10FC38C2F13782BC0CE9A">PCProtect</string>
+    <!--../../app/src/pcprotect/res/values/strings.xml-->
+    <string name="A89CDD951EE198419A1B2FD878E6859F">pcprotect</string>
+    <!--../../app/src/main/res/values/strings.xml-->
+    <string name="9F14D68B15D7D8E39FDF83547507FB56">TotalAV</string>
+    <!--../../app/src/main/res/values/strings.xml-->
+    <string name="F78E4C820BBF2673BDD8D75CCD6C112C">totalav</string>
+    <!--../../app/src/main/res/values/strings.xml-->
+    <string name="1F58FE0DD7AA06E5550CCEFD1A555B51">VPN - %s</string>
+    <!--../../app/src/main/res/values/strings.xml-->
+    <string name="54879E72C23419FF985371CA588CFD52">⋮</string>
+    <!--../../app/src/main/res/values/strings.xml-->
+    <string name="207834226FFEA6AA1A2A35BF5FB85839">Search for settings icon</string>
+    <!--../../app/src/main/res/values/strings.xml-->
+    <string name="F565499334EC881F79AC93AD0A0EC0EF">Switch to turn on or off the Auto-connect to VPN option</string>
+    <!--../../app/src/main/res/values/strings.xml-->
+    <string name="044E0D985A538F1D7C7ECC9EC177C639">Touch and hold this icon depicting a widget to add a widget for the Secure Browser in the home screen</string>
+    <!--../../app/src/main/res/values/strings.xml-->
+    <string name="2CD5BEF20BF1102B840B73BD8AC294F4">Three hollow dots arranged vertically with a small gap between them. Tap to show a menu</string>
+    <!--../../app/src/main/res/values/strings.xml-->
+    <string name="42828C1F75071DFA99D1A816B5226603">Switch to toggle the Hide Pattern draw path option</string>
+    <!--../../app/src/main/res/values/strings.xml-->
+    <string name="5F8EDD90BF2A5F80998FAD5F67931C58">Switch to toggle the Fingerprint Unlock option</string>
+    <!--../../app/src/main/res/values/strings.xml-->
+    <string name="0F10462E2BD0C0204AD0EC72A1046B05">Magnifier icon to depict search functionality.</string>
+    <!--../../app/src/main/res/values/strings.xml-->
+    <string name="CAF76272338DC786B581167241A50203">Plus icon to indicate that this allows to add to the list</string>
+    <!--../../app/src/scanguard/res/values/strings.xml-->
+    <string name="BF403A34E4B6315DEE93B9A1F98AA398">ScanGuard</string>
+    <!--../../app/src/scanguard/res/values/strings.xml-->
+    <string name="E896DE72936D0D1E366D936597615380">scanguard</string>
+    <!--../../app/src/scanguard/res/values/strings.xml-->
+    <string name="3ED6C13A43BAFFB307DC173DD96295D2">ScanGuard AppLock Service</string>
+    <!--../../ss-api-client-kotlin/src/main/res/values/strings.xml-->
+    <string name="D02B15245FD06CAC43D1BA3AE9B81564">SSCore</string>
+    <!--../../android-kotlin-utilizr/src/main/res/values/strings.xml-->
+    <string name="0B2B093E6B9DBEB620A41B5D284811BB">Utilizr</string>
+    <!--../../features/wificheck/src/main/res/values/strings.xml-->
+    <string name="603DD92D13886CAD2AC0683866FB8BAB">Image of a man at a desk holding and looking at a phone</string>
+    <!--../../features/securebrowser/src/main/res/values/strings.xml-->
+    <string name="781524B18E0E6BCAE4B90C28E22092B0">TotalAV Secure Browser</string>
+    <!--../../features/databreach/src/main/res/values/strings.xml-->
+    <string name="C6592F9956D540945A4B7ED93F371103">Image of a man at a desk holding and looking at a phone</string>
+    <!--../../features/optimisation/src/main/res/values/strings.xml-->
+    <string name="30B775D8E7B6561134CB4862F872CD93">Image of a man and a woman at a desk holding and looking at a phone</string>
+    <!--../../features/optimisation/src/main/res/values/strings.xml-->
+    <string name="3647BCF4F1249A388D1AFCA2C5D67718">Image of a man and a woman at a desk looking at a laptop</string>
+    <!--../../features/optimisation/src/main/res/values/strings.xml-->
+    <string name="8387B886CB97C71E959F27463F40096B">Image of a woman at a desk holding and looking at a phone</string>
+    <!--../../features/optimisation/src/main/res/values/strings.xml-->
+    <string name="EBBE071AE44DAA9DAAE5F96E130CE462">Cancel</string>
+    <!--../../features/optimisation/src/main/res/values/strings.xml-->
+    <string name="68B458D060ECC1A59A76957BEC95A81F">"Tick Icon"</string>
+</resources>

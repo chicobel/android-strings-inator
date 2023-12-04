@@ -31,11 +31,11 @@ if(args.Length >0)
         {
             Console.WriteLine("A new map will be generated..");
             if(string.IsNullOrEmpty(mapFile))
-                mapFile = "translations.map";
-            else if(mapFile.Contains(".") && !mapFile.EndsWith(".map")){
-                mapFile = mapFile.Split(".")[0]+".map";
+                mapFile = "translations.json";
+            else if(mapFile.Contains('.') && !mapFile.EndsWith(".json")){
+                mapFile = mapFile.Split(".")[0]+".json";
             } else {
-                mapFile += ".map";
+                mapFile += ".json";
             }
         }
     }
@@ -47,12 +47,18 @@ if(args.Length >0)
         LoadstringsFromFiles(true);//we only want to do the default language here and produce a combined strings.xml file   
         Console.WriteLine("Storing map in {0}",mapFile);
         translationMap = new TranslationMap { CreatedUtc = DateTime.UtcNow, Maps = maps };
-        var jsonData = JsonConvert.SerializeObject(translationMap);
-        using var fs = new StreamWriter(Path.Combine(Environment.CurrentDirectory, mapFile), new FileStreamOptions{ Mode= FileMode.OpenOrCreate, Share= FileShare.ReadWrite, Access = FileAccess.ReadWrite});
-        fs.Write(jsonData);
+        JsonSerializer serializer = new JsonSerializer();
+        serializer.NullValueHandling = NullValueHandling.Ignore;
+        serializer.Formatting = Newtonsoft.Json.Formatting.Indented;
+
+        using (StreamWriter sw = new StreamWriter(Path.Combine(Environment.CurrentDirectory, mapFile)))
+        using (JsonWriter writer = new JsonTextWriter(sw))
+        {
+            serializer.Serialize(writer, translationMap);
+        }
         Console.WriteLine("Successfully stored map file map in {0}",mapFile);
         //write out combined stings.xml
-        WriteMergergedStringsFile();
+        WriteMergergedStringsFile();             
         Environment.Exit(0);
         return;
     }

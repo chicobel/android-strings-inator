@@ -1,0 +1,233 @@
+{
+  "Maps": {
+    "594E2E204446968E42F175BCBDD8CA0F": {
+      "ResId": "splash_image_devices_description",
+      "DefaultSource": "../../core/ui/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Image of a family smiling and sat on a sofa around a laptop"
+    },
+    "9695354219970E81AF3183415A7F2E91": {
+      "ResId": "splash_image_optimise_description",
+      "DefaultSource": "../../core/ui/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Image of a woman sat at a desk with a coffee cup in one hand and a phone in the other"
+    },
+    "3D085A5E77A5A73D6258BE3B909619A9": {
+      "ResId": "splash_image_webshield_description",
+      "DefaultSource": "../../core/ui/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Image of a man and woman posing for a selfie"
+    },
+    "B73FA9504B10F9F9B1050B1E6E5A5D6F": {
+      "ResId": "down_arrow_head_description",
+      "DefaultSource": "../../core/ui/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Down arrow head to make a selection by tapping on"
+    },
+    "E1B02608DDCD671141E530A5074B8024": {
+      "ResId": "app_name",
+      "DefaultSource": "../../app/src/totalav/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "TotalAV"
+    },
+    "02B4719B49C5E2FFC93E72EA25AED945": {
+      "ResId": "brand",
+      "DefaultSource": "../../app/src/totalav/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "totalav"
+    },
+    "9BF43F29F2140ECE3F38CB42B80CE7B8": {
+      "ResId": "applock_service_name",
+      "DefaultSource": "../../app/src/totalav/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "TotalAV App Lock"
+    },
+    "C8ED5DEA390225F9BA6CB038A9224389": {
+      "ResId": "applock_service_description",
+      "DefaultSource": "../../app/src/totalav/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "TotalAV App Lock Service"
+    },
+    "AE88F938CCD7AFCBCD135BBDAA11546C": {
+      "ResId": "webshield_service_name",
+      "DefaultSource": "../../app/src/totalav/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "TotalAV WebShield"
+    },
+    "7692AF0A5E72C810509B4E1DFFB0D3CD": {
+      "ResId": "webshield_service_description",
+      "DefaultSource": "../../app/src/totalav/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "TotalAV WebShield service"
+    },
+    "617D329511CFB092DC756D1DDCDC2693": {
+      "ResId": "title_activity_real_time_result",
+      "DefaultSource": "../../app/src/totalav/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "RealTimeResultActivity"
+    },
+    "EB03C27BD8D10FC38C2F13782BC0CE9A": {
+      "ResId": "app_name",
+      "DefaultSource": "../../app/src/pcprotect/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "PCProtect"
+    },
+    "A89CDD951EE198419A1B2FD878E6859F": {
+      "ResId": "brand",
+      "DefaultSource": "../../app/src/pcprotect/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "pcprotect"
+    },
+    "9F14D68B15D7D8E39FDF83547507FB56": {
+      "ResId": "app_name",
+      "DefaultSource": "../../app/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "TotalAV"
+    },
+    "F78E4C820BBF2673BDD8D75CCD6C112C": {
+      "ResId": "brand",
+      "DefaultSource": "../../app/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "totalav"
+    },
+    "1F58FE0DD7AA06E5550CCEFD1A555B51": {
+      "ResId": "notifcation_title",
+      "DefaultSource": "../../app/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "VPN - %s"
+    },
+    "54879E72C23419FF985371CA588CFD52": {
+      "ResId": "vertical_ellipsis",
+      "DefaultSource": "../../app/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "⋮"
+    },
+    "207834226FFEA6AA1A2A35BF5FB85839": {
+      "ResId": "search_for_settings_icon",
+      "DefaultSource": "../../app/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Search for settings icon"
+    },
+    "F565499334EC881F79AC93AD0A0EC0EF": {
+      "ResId": "switch_to_turn_on_or_off_the_auto_connect_to_vpn_option",
+      "DefaultSource": "../../app/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Switch to turn on or off the Auto-connect to VPN option"
+    },
+    "044E0D985A538F1D7C7ECC9EC177C639": {
+      "ResId": "add_secure_browser_widget_to_home_screen_text",
+      "DefaultSource": "../../app/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Touch and hold this icon depicting a widget to add a widget for the Secure Browser in the home screen"
+    },
+    "2CD5BEF20BF1102B840B73BD8AC294F4": {
+      "ResId": "three_hollow_dots_arranged_vertically_description",
+      "DefaultSource": "../../app/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Three hollow dots arranged vertically with a small gap between them. Tap to show a menu"
+    },
+    "42828C1F75071DFA99D1A816B5226603": {
+      "ResId": "applock_settings_switch_to_toggle_hide_pattern_option",
+      "DefaultSource": "../../app/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Switch to toggle the Hide Pattern draw path option"
+    },
+    "5F8EDD90BF2A5F80998FAD5F67931C58": {
+      "ResId": "applock_settings_switch_to_toggle_the_fingerprint_unlock_option",
+      "DefaultSource": "../../app/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Switch to toggle the Fingerprint Unlock option"
+    },
+    "0F10462E2BD0C0204AD0EC72A1046B05": {
+      "ResId": "magnifier_icon_to_depict_search_functionality",
+      "DefaultSource": "../../app/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Magnifier icon to depict search functionality."
+    },
+    "CAF76272338DC786B581167241A50203": {
+      "ResId": "plus_icon_to_indicate_that_this_allows_to_add_to_the_list",
+      "DefaultSource": "../../app/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Plus icon to indicate that this allows to add to the list"
+    },
+    "BF403A34E4B6315DEE93B9A1F98AA398": {
+      "ResId": "app_name",
+      "DefaultSource": "../../app/src/scanguard/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "ScanGuard"
+    },
+    "E896DE72936D0D1E366D936597615380": {
+      "ResId": "brand",
+      "DefaultSource": "../../app/src/scanguard/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "scanguard"
+    },
+    "3ED6C13A43BAFFB307DC173DD96295D2": {
+      "ResId": "packageServiceLabel",
+      "DefaultSource": "../../app/src/scanguard/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "ScanGuard AppLock Service"
+    },
+    "D02B15245FD06CAC43D1BA3AE9B81564": {
+      "ResId": "app_name",
+      "DefaultSource": "../../ss-api-client-kotlin/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "SSCore"
+    },
+    "0B2B093E6B9DBEB620A41B5D284811BB": {
+      "ResId": "app_name",
+      "DefaultSource": "../../android-kotlin-utilizr/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Utilizr"
+    },
+    "603DD92D13886CAD2AC0683866FB8BAB": {
+      "ResId": "wifi_splash_image_description",
+      "DefaultSource": "../../features/wificheck/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Image of a man at a desk holding and looking at a phone"
+    },
+    "781524B18E0E6BCAE4B90C28E22092B0": {
+      "ResId": "sb_widget_label",
+      "DefaultSource": "../../features/securebrowser/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "TotalAV Secure Browser"
+    },
+    "C6592F9956D540945A4B7ED93F371103": {
+      "ResId": "breach_splash_image_description",
+      "DefaultSource": "../../features/databreach/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Image of a man at a desk holding and looking at a phone"
+    },
+    "30B775D8E7B6561134CB4862F872CD93": {
+      "ResId": "optimisation_photo_splash_image_description",
+      "DefaultSource": "../../features/optimisation/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Image of a man and a woman at a desk holding and looking at a phone"
+    },
+    "3647BCF4F1249A388D1AFCA2C5D67718": {
+      "ResId": "optimisation_video_splash_image_description",
+      "DefaultSource": "../../features/optimisation/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Image of a man and a woman at a desk looking at a laptop"
+    },
+    "8387B886CB97C71E959F27463F40096B": {
+      "ResId": "optimisation_contact_splash_image_description",
+      "DefaultSource": "../../features/optimisation/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Image of a woman at a desk holding and looking at a phone"
+    },
+    "EBBE071AE44DAA9DAAE5F96E130CE462": {
+      "ResId": "dismiss_button",
+      "DefaultSource": "../../features/optimisation/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "Cancel"
+    },
+    "68B458D060ECC1A59A76957BEC95A81F": {
+      "ResId": "txt_description_tick_icon",
+      "DefaultSource": "../../features/optimisation/src/main/res/values/strings.xml",
+      "Translations": {},
+      "DefaultValue": "\"Tick Icon\""
+    }
+  },
+  "CreatedUtc": "2023-12-04T13:55:45.033965Z"
+}
