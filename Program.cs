@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Security.Permissions;
 using System.Xml;
 using CLAP.Validation;
 using Newtonsoft.Json;
@@ -121,24 +122,48 @@ void WriteTranslatedStrings(){
             StreamWriter? fileStream = null;
             var outputPathh = Path.Combine(Environment.CurrentDirectory,localeFile.Replace("values","values-"+language.Key));
             var outputValuesFolder = outputPathh.Replace("strings.xml","");
-            if(!Directory.Exists(outputValuesFolder))
-                Directory.CreateDirectory(outputValuesFolder);
-            
-            try{
-                fileStream = new StreamWriter(outputPathh, new FileStreamOptions{ Mode= FileMode.Create, Share = FileShare.ReadWrite, Access = FileAccess.ReadWrite});
-                fileStream.WriteLine("<resources>");
-                foreach(var t in maps){
-                    if(t.Value.DefaultSource != localeFile)//does not belong here
-                        continue;
+            if(!Directory.Exists(outputValuesFolder) || !File.Exists(outputPathh)){
+                Directory.CreateDirectory(outputValuesFolder);     
+                try{
+                    fileStream = new StreamWriter(outputPathh, new FileStreamOptions{ Mode= FileMode.Create, Share = FileShare.ReadWrite, Access = FileAccess.ReadWrite});
+                    fileStream.WriteLine("<resources>");
+                    foreach(var t in maps){
+                        if(t.Value.DefaultSource != localeFile)//does not belong here
+                            continue;
+                    var translationForLocale = t.Value.Translations[language.Key];
+                    fileStream.WriteLine($"    <string name=\"{t.Value.ResId}\">{translationForLocale.Translation}</string>");
+                }
+                fileStream?.WriteLine("</resources>");
+                }catch (Exception e){
+                    Console.WriteLine("Failed to write translated string to: {0}",outputPathh);
+                } finally {
+                    fileStream?.Close();
+                }
+            }
+            //the file exists, so we have to append / merge
+            var doc = new XmlDocument();
+            doc.Load(outputPathh);
+            var madeChanges = false;
+            foreach(var t in maps){
+                if(t.Value.DefaultSource != localeFile || t.Value.Translations.Count <=0)//does not belong here
+                    continue;
                 var translationForLocale = t.Value.Translations[language.Key];
-                fileStream.WriteLine($"    <string name=\"{t.Value.ResId}\">{translationForLocale.Translation}</string>");
+                var existingResIds =  doc.SelectNodes("//string/@name")?.Cast<XmlAttribute>().Select(p=>p.Value).ToList();
+                if(existingResIds?.Contains(t.Value.ResId) == true)
+                    continue; //support overwriting existing strings in the future at this level based off some flag
+                //Create a new node.
+                XmlElement elem = doc.CreateElement("string");
+                elem.InnerText = translationForLocale.Translation;
+                elem.SetAttribute("name",t.Value.ResId);
+                //Add the node to the document.
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                doc.FirstChild.AppendChild(elem);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+                madeChanges = true;
             }
-            fileStream?.WriteLine("</resources>");
-            }catch (Exception e){
-                Console.WriteLine("Failed to write translated string to: {0}",outputPathh);
-            } finally {
-                fileStream?.Close();
-            }
+            if(madeChanges)
+                doc.Save(outputPathh);
+        
         }
     }
 
